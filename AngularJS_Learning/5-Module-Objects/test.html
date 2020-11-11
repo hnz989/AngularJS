@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-app="myApp">
+
+    <div ng-controller="Mycontroller">
+        <input type="text" ng-model="empName">
+        <p>Super Star 1: {{empName}}</p>
+    </div>
+
+    <div ng-controller="Mycontroller2">
+        <input type="text" ng-model="empName">
+        <p>Super Star 2: {{empName}}</p>
+    </div>
+</body>
+    <script src="angular.min.js"></script>
+    <script type="text/javascript">
+         //创建模块儿对象
+        // var myModule = angular.module('myApp',[]);
+        // //生成作用域对象
+        // myModule.controller('Mycontroller', function($scope){
+        //     $scope.empName = 'Kobe';   //这里必须用$scope 而不能用this.
+        // })
+
+        // myModule.controller('Mycontroller2', function($scope){
+        //     $scope.empName = 'Wade';   //这里必须用$scope 而不能用this.
+        // })
+
+        //优化 链式调用
+        angular.module('myApp',[])
+            .controller('MyController', function($scope){
+                $scope.empName = 'Kobe';   //这里必须用$scope 而不能用this.
+            })
+            .controller('MyController2', function($scope){
+                $scope.empName = 'Wade';   //这里必须用$scope 而不能用this.
+            })
+        //现实开发中用的coding模式
+        // angular.module('myApp',[])
+        //     .controller('MyController', ['$scope', function($scope){
+        //         $scope.empName = 'Kobe';   //这里必须用$scope 而不能用this.
+        //     }])
+        //     .controller('MyController2', ['$scope', function($scope){
+        //         $scope.empName = 'Wade';   //这里必须用$scope 而不能用this.
+        //     }])
+
+
+    </script>
+
+</html>

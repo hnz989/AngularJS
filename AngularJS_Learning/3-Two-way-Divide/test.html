@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-app ng-init="age='22'">
+
+    <div ng-controller="MyController">
+        <input type="text" placeholder="Last Name" ng-model="lastName">
+        <input type="text" placeholder="First Name" ng-model="firstName">
+        <p>Your input name1 is:{{firstName+'-'+lastName}}</p>
+        <p>Your input name2 is:{{getName()}}</p>
+        <p>Your original age is:{{age}}</p>
+    </div>
+    <script src="angular.js"></script>
+    <script type="text/javascript">
+        function MyController($scope){
+            console.log($scope);
+            $scope.firstName = 'Kobe';
+            $scope.lastName = 'Bryant';
+            $scope.getName = function(){
+                return this.firstName +' '+this.lastName;
+            }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-agg>
+    <button id="btn">Please click here!</button>
+    <script src="angular.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            document.getElementById('btn').onclick = function(event){
+                alert(event.clientX);
+            }
+        }
+    </script>
+        <script type="text/javascript">
+            var arr = [1,2,3,4,5];
+            var res = [];
+
+            //命令式-更加注重的是执行的过程
+            for(var i=0;i<arr.length;i++)
+            {
+                res[i] = arr[i]+10;
+            }
+            console.log(res);
+            //声明式-更加注重的是执行的结果
+            var res2 = arr.map(function(item,index){
+                console.log(item,index);
+                return item+10;
+            })
+            console.log(res2);
+
+        </script>
+
+
+</body>
+</html>

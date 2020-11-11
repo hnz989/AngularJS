@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <p>Your input content: <span></span></p>
+    <script src="https://code.jquery.com/jquery-1.10.1.min.js" integrity="sha256-SDf34fFWX/ZnUozXXEH0AeB+Ip3hvRsjLwp6QNTEb3k=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('input').keyup(function(){
+                 var value = this.value;
+                $('span').html(value);
+            });
+        });
+    </script>
+    
+</body>
+</html>
