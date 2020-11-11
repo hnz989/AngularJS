@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+
+    <div ng-controller="MyCtrl">
+        <div>
+            <h2>Price Calculator(auto)</h2>
+            Amount: <input type="number" ng-model="count1">
+            Price: <input type="number" ng-model="price1">
+            <p>Total: {{count1 * price1 }}</p>
+        </div>
+
+        <div>
+            <h2>Price Calculator(manual)</h2>
+            Amount: <input type="number" ng-model="count2">
+            Price: <input type="number" ng-model="price2">
+            <button ng-click="getTotalPrice()">Calulate</button>
+            <p>Total: {{totalPrice}}</p>
+        </div>
+
+        <div>
+            <h2>Staff Information List</h2>
+            <ul>
+                <li ng-repeat="person in persons">
+                    first--{{$first}}--index--{{$index}}--{{person.username}}---{{person.age}}--{{$last}}--{{$odd}}
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <p>{{123}}</p>
+            <p ng-bind="123"></p>
+        </div>
+
+        <div>
+            <button ng-click="switch1 ()">Change Hobbie</button>
+            <p ng-show="isLike">I love coding</p>
+            <p ng-hide="isLike">I love singing</p>
+        </div>
+    </div>
+<script type='text/javascript' src='angular.js'></script>
+<script type="text/javascript">
+
+    angular.module('myApp',[])
+        .controller('MyCtrl', function ($scope){
+            $scope.price1 = 30;
+            $scope.count1 = 1;
+            $scope.price2 = 30;
+            $scope.count2 = 1;
+            $scope.totalPrice = 30;
+            $scope.getTotalPrice = function (){
+                $scope.totalPrice = $scope.price2 * $scope.count2;
+            }
+            $scope.isLike = true;
+
+            $scope.switch1 = function (){
+
+                $scope.isLike=!$scope.isLike;
+
+            }
+            //初始化人员数据
+            $scope.persons = [
+                {username: 'kobe', age: 39},
+                {username: 'wade', age: 31},
+                {username: 'sharp', age: 43},
+                {username: 'messi', age: 32},
+                {username: 'ronado', age: 21},
+            ]
+        })
+
+</script>
+</body>
+</html>
